@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Privacy Guardian</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Privacy Guardian</h1>
+      <div class="tab-container">
+        <button class="tab-button active" data-tab="trackers">Trackers</button>
+        <button class="tab-button" data-tab="permissions">Permissions</button>
+        <button class="tab-button" data-tab="footprint">Digital Footprint</button>
+      </div>
+    </header>
+    
+    <div class="content">
+      <!-- Trackers Tab -->
+      <div id="trackers" class="tab-content active">
+        <div class="site-info">
+          <h2>Current Site: <span id="current-site">Loading...</span></h2>
+          <div class="actions">
+            <button id="clear-site-data">Clear Site Data</button>
+          </div>
+        </div>
+        
+        <div class="tracker-summary">
+          <div class="tracker-stat">
+            <span id="tracker-count">0</span>
+            <label>Trackers Detected</label>
+          </div>
+          <div class="tracker-stat">
+            <span id="data-types-count">0</span>
+            <label>Data Types Collected</label>
+          </div>
+        </div>
+        
+        <div class="tracker-list">
+          <h3>Detected Trackers</h3>
+          <div id="no-trackers-message" class="hidden">
+            No trackers detected on this page.
+          </div>
+          <ul id="tracker-list-items"></ul>
+        </div>
+      </div>
+      
+      <!-- Permissions Tab -->
+      <div id="permissions" class="tab-content">
+        <div class="permissions-header">
+          <h2>Site Permissions</h2>
+          <button id="check-permissions">Check for Unused</button>
+        </div>
+        
+        <div class="permissions-current">
+          <h3>Current Site Permissions</h3>
+          <div id="no-permissions-message">
+            No permissions detected for this site.
+          </div>
+          <ul id="current-permissions-list"></ul>
+        </div>
+        
+        <div class="permissions-unused">
+          <h3>Suggested Cleanups</h3>
+          <div id="no-unused-message">
+            No unused permissions detected.
+          </div>
+          <ul id="unused-permissions-list"></ul>
+        </div>
+      </div>
+      
+      <!-- Digital Footprint Tab -->
+      <div id="footprint" class="tab-content">
+        <div class="footprint-header">
+          <h2>Your Digital Footprint</h2>
+          <div class="date-range">
+            <select id="time-range">
+              <option value="day">Last 24 Hours</option>
+              <option value="week" selected>Last Week</option>
+              <option value="month">Last Month</option>
+              <option value="all">All Time</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="footprint-summary">
+          <div class="footprint-stat">
+            <span id="visited-sites">0</span>
+            <label>Sites Visited</label>
+          </div>
+          <div class="footprint-stat">
+            <span id="tracker-networks">0</span>
+            <label>Tracker Networks</label>
+          </div>
+          <div class="footprint-stat">
+            <span id="blocked-count">0</span>
+            <label>Trackers Blocked</label>
+          </div>
+        </div>
+        
+        <div class="footprint-visualization">
+          <h3>Tracking Visualization</h3>
+          <div id="visualization-container">
+            <div class="visualization-placeholder">
+              <p>Select a time range to view your tracking visualization</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="top-trackers">
+          <h3>Top Tracking Networks</h3>
+          <ul id="top-trackers-list"></ul>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <p>Privacy Guardian v1.0.0</p>
+        <a href="https://vishwas.me" target="_blank" rel="noopener">Vishwas R</a>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
